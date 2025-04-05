@@ -36,4 +36,52 @@
     <listener>
         <listener-class>com.example.util.DatabaseInitListener</listener-class>
     </listener>
+    
+    <!-- Доступ к статическим ресурсам -->
+    <servlet-mapping>
+        <servlet-name>default</servlet-name>
+        <url-pattern>/assets/*</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Настраиваем специальный обработчик для несуществующей-страницы -->
+    <servlet>
+        <servlet-name>NotFoundServlet</servlet-name>
+        <servlet-class>com.example.servlet.NotFoundServlet</servlet-class>
+    </servlet>
+    <servlet-mapping>
+        <servlet-name>NotFoundServlet</servlet-name>
+        <url-pattern>/несуществующая-страница</url-pattern>
+    </servlet-mapping>
+    
+    <!-- Настройка обработки ошибок -->
+    <error-page>
+        <error-code>404</error-code>
+        <location>/error-handler?type=404</location>
+    </error-page>
+    
+    <!-- Обработка для несуществующих URL, которые не были обработаны ни одним сервлетом -->
+    <error-page>
+        <location>/error-handler?type=404</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>500</error-code>
+        <location>/error-handler?type=500</location>
+    </error-page>
+    
+    <error-page>
+        <error-code>403</error-code>
+        <location>/error-handler?type=403</location>
+    </error-page>
+    
+    <error-page>
+        <exception-type>java.lang.Throwable</exception-type>
+        <location>/error-handler</location>
+    </error-page>
+
+    <!-- Специальная страница для ошибок JSP -->
+    <error-page>
+        <exception-type>java.lang.ArithmeticException</exception-type>
+        <location>/error-handler?type=500</location>
+    </error-page>
 </web-app> 

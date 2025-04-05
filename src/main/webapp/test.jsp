@@ -36,6 +36,20 @@
             padding: 20px 0;
             background-color: #f8f9fa;
         }
+        .error-test-box {
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            padding: 20px;
+            margin-top: 20px;
+            background-color: #f8f9fa;
+        }
+        .error-test-box h5 {
+            color: #dc3545;
+            margin-bottom: 15px;
+        }
+        .error-btn {
+            margin: 5px;
+        }
     </style>
 </head>
 <body>
@@ -101,6 +115,97 @@
                             <li class="list-group-item">Server Info: <%= application.getServerInfo() %></li>
                             <li class="list-group-item">Servlet API Version: <%= application.getMajorVersion() %>.<%= application.getMinorVersion() %></li>
                         </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Тестирование страниц с ошибками -->
+        <div class="row mt-4">
+            <div class="col-md-12">
+                <h2>Тестирование страниц с ошибками</h2>
+                <div class="error-test-box">
+                    <h5>Вызов страниц с различными ошибками</h5>
+                    <p>Для тестирования системы обработки ошибок, используйте кнопки ниже, чтобы вызвать соответствующую ошибку.</p>
+                    
+                    <div class="row">
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-header bg-danger text-white">
+                                    Ошибка 404
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Страница не найдена</p>
+                                    <a href="<%=request.getContextPath()%>/несуществующая-страница" class="btn btn-outline-danger error-btn">Вызвать ошибку 404</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-header bg-danger text-white">
+                                    Ошибка 500
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Внутренняя ошибка сервера</p>
+                                    <a href="<%=request.getContextPath()%>/test-error?type=500" class="btn btn-outline-danger error-btn">Вызвать ошибку 500</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-header bg-danger text-white">
+                                    Ошибка 403
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Доступ запрещен</p>
+                                    <a href="<%=request.getContextPath()%>/test-error?type=403" class="btn btn-outline-danger error-btn">Вызвать ошибку 403</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="row mt-3">
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-header bg-danger text-white">
+                                    Ошибка Java
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Исключение в Java-коде</p>
+                                    <a href="<%=request.getContextPath()%>/test-error?type=java" class="btn btn-outline-danger error-btn">Вызвать исключение</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-header bg-danger text-white">
+                                    Общая ошибка
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Обработка общей ошибки</p>
+                                    <a href="<%=request.getContextPath()%>/test-error?type=general" class="btn btn-outline-danger error-btn">Вызвать общую ошибку</a>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="col-md-4">
+                            <div class="card mb-3">
+                                <div class="card-header bg-danger text-white">
+                                    JSP Ошибка
+                                </div>
+                                <div class="card-body">
+                                    <p class="card-text">Ошибка синтаксиса JSP</p>
+                                    <a href="<%=request.getContextPath()%>/test-error?type=jsp" class="btn btn-outline-danger error-btn">Вызвать JSP ошибку</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="alert alert-warning mt-3" role="alert">
+                        <strong>Примечание:</strong> Некоторые ошибки могут потребовать создания дополнительного обработчика на стороне сервера.
                     </div>
                 </div>
             </div>
