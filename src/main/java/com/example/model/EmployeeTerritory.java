@@ -1,22 +1,22 @@
 package com.example.model;
 
-public class RepresentativeTerritory {
+public class EmployeeTerritory {
     private int employeeId;
     private int territoryId;
-    private Representative representative;
+    private Employee employee;
     private Territory territory;
 
-    public RepresentativeTerritory() {}
+    public EmployeeTerritory() {}
 
-    public RepresentativeTerritory(int employeeId, int territoryId) {
+    public EmployeeTerritory(int employeeId, int territoryId) {
         this.employeeId = employeeId;
         this.territoryId = territoryId;
     }
     
-    public RepresentativeTerritory(int employeeId, int territoryId, Representative representative, Territory territory) {
+    public EmployeeTerritory(int employeeId, int territoryId, Employee employee, Territory territory) {
         this.employeeId = employeeId;
         this.territoryId = territoryId;
-        this.representative = representative;
+        this.employee = employee;
         this.territory = territory;
     }
 
@@ -36,12 +36,12 @@ public class RepresentativeTerritory {
         this.territoryId = territoryId;
     }
     
-    public Representative getRepresentative() {
-        return representative;
+    public Employee getEmployee() {
+        return employee;
     }
     
-    public void setRepresentative(Representative representative) {
-        this.representative = representative;
+    public void setEmployee(Employee employee) {
+        this.employee = employee;
     }
     
     public Territory getTerritory() {
@@ -51,4 +51,4 @@ public class RepresentativeTerritory {
     public void setTerritory(Territory territory) {
         this.territory = territory;
     }
-} 
+}

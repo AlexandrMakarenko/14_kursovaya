@@ -13,8 +13,8 @@ import java.io.IOException;
 import java.sql.SQLException;
 import java.util.List;
 
-@WebServlet("/region")
-public class RegionServlet extends HttpServlet {
+@WebServlet("/regions")
+public class RegionsServlet extends HttpServlet {
     private RegionDAO regionDAO;
     
     @Override
@@ -30,7 +30,7 @@ public class RegionServlet extends HttpServlet {
             request.setAttribute("regions", regions);
             request.getRequestDispatcher("/WEB-INF/views/regions.jsp").forward(request, response);
         } catch (SQLException e) {
-            throw new ServletException("Database error", e);
+            throw new ServletException("Ошибка при получении списка регионов", e);
         }
     }
 
@@ -48,18 +48,12 @@ public class RegionServlet extends HttpServlet {
             } else if ("update".equals(action)) {
                 int id = Integer.parseInt(request.getParameter("id"));
                 String description = request.getParameter("description");
-                Region region = new Region();
-                region.setId(id);
-                region.setDescription(description);
+                Region region = new Region(id, description);
                 regionDAO.update(region);
-            } else if ("delete".equals(action)) {
-                int id = Integer.parseInt(request.getParameter("id"));
-                regionDAO.delete(id);
             }
-        } catch (SQLException e) {
-            throw new ServletException("Database error", e);
+            response.sendRedirect(request.getContextPath() + "/regions");
+        } catch (SQLException | NumberFormatException e) {
+            throw new ServletException("Ошибка при работе с регионами", e);
         }
-        
-        response.sendRedirect(request.getContextPath() + "/region");
     }
 } 

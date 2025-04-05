@@ -53,13 +53,13 @@ public class HomeServlet extends HttpServlet {
         out.println("</div>");
         out.println("</div>");
         
-        // Представители
+        // Сотрудники
         out.println("<div class=\"col-md-4\">");
         out.println("<div class=\"card mb-4\">");
         out.println("<div class=\"card-body\">");
-        out.println("<h5 class=\"card-title\">Представители</h5>");
-        out.println("<p class=\"card-text\">Управление представителями и их контактной информацией</p>");
-        out.println("<a href=\"representatives\" class=\"btn btn-primary\">Перейти</a>");
+        out.println("<h5 class=\"card-title\">Сотрудники</h5>");
+        out.println("<p class=\"card-text\">Управление сотрудниками и их контактной информацией</p>");
+        out.println("<a href=\"employees\" class=\"btn btn-primary\">Перейти</a>");
         out.println("</div>");
         out.println("</div>");
         out.println("</div>");
@@ -69,8 +69,8 @@ public class HomeServlet extends HttpServlet {
         out.println("<div class=\"card mb-4\">");
         out.println("<div class=\"card-body\">");
         out.println("<h5 class=\"card-title\">Назначение территорий</h5>");
-        out.println("<p class=\"card-text\">Управление назначением территорий представителям</p>");
-        out.println("<a href=\"representative-territories\" class=\"btn btn-primary\">Перейти</a>");
+        out.println("<p class=\"card-text\">Управление назначением территорий сотрудникам</p>");
+        out.println("<a href=\"employee-territories\" class=\"btn btn-primary\">Перейти</a>");
         out.println("</div>");
         out.println("</div>");
         out.println("</div>");

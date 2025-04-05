@@ -2,7 +2,7 @@ package com.example.model;
 
 import java.util.Date;
 
-public class Representative {
+public class Employee {
     private int id;
     private String lastName;
     private String firstName;
@@ -15,9 +15,9 @@ public class Representative {
     private String phone;
     private String email;
 
-    public Representative() {}
+    public Employee() {}
 
-    public Representative(int id, String lastName, String firstName, String secondName, 
+    public Employee(int id, String lastName, String firstName, String secondName, 
                         String title, Date birthDay, String address, String city, 
                         String region, String phone, String email) {
         this.id = id;
